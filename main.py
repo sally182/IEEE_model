@@ -21,7 +21,7 @@ app = FastAPI()
 
 @app.get("/")
 def read_root():
-    return {"Hello": "World"}
+    return {pred}
 
 
 @app.post("/predict")
