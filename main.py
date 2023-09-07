@@ -13,19 +13,15 @@ app = FastAPI()
 
 @app.get("/")
 def read_root():
-    def scale_and_predict(data):
-        
-        scaler = joblib.load("scaler.gz")
-        model = joblib.load("model.gz")
-        data = np.array(data)
-        print(data)
-        scaled_data = scaler.transform(data)
-        pred = model.predict([scaled_data])
-    return pred
-
     
-    
-    return {pred}
+    scaler = joblib.load("scaler.gz")
+    model = joblib.load("model.gz")
+    data = np.array(data)
+    print(data)
+    scaled_data = scaler.transform(data)
+    pred = model.predict([scaled_data])
+ 
+    return {'pred'}
 
 
 @app.post("/predict")
